@@ -1,42 +1,43 @@
 import 'package:flutter/material.dart';
-import '../models/category_model.dart';
-import '../utils/app_routes.dart';
+import 'package:meals/models/category_model.dart';
+
+import '../untils/app_routes.dart';
 
 class CategoryItem extends StatelessWidget {
+  const CategoryItem({super.key, required this.category});
+
   final CategoryModel category;
 
-  const CategoryItem(this.category, {Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
 
-  void _selectCategory(BuildContext context) {
+    void selectCategory(BuildContext context) {
     Navigator.of(context).pushNamed(
-      AppRoutes.categoriesMeals,
+      AppRoutes.categoryMeals,
       arguments: category,
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: InkWell(
-        onTap: () => _selectCategory(context),
-        splashColor: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(15),
+    return InkWell(
+       borderRadius: (BorderRadius.circular(10)),
+       splashColor: Theme.of(context).primaryColor,
+      onTap: () => selectCategory(context),
+      child: Material(
         child: Container(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: (BorderRadius.circular(10)),
             gradient: LinearGradient(
               colors: [
                 category.color.withOpacity(0.5),
-                category.color,
+                category.color
               ],
               begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+              end: Alignment.bottomRight
+            )
           ),
           child: Text(
-            category.title,
-            style: Theme.of(context).textTheme.headline6,
+            category.title
           ),
         ),
       ),
