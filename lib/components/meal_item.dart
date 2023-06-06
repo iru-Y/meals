@@ -8,15 +8,16 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _selectMeal() {
+    void selectMeal() {
       Navigator.pushNamed(context, arguments: meal, AppRoutes.mealDetailScreen);
     }
 
     return InkWell(
-      onTap: _selectMeal,
+      onTap: selectMeal,
       child: Card(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),
+              ),
           elevation: 4,
           margin: const EdgeInsets.all(16),
           child: Column(children: [

@@ -7,7 +7,7 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget _createItem (IconData icon, String label, void Function() onTap){
+    Widget createItem (IconData icon, String label, void Function() onTap){
       return ListTile(
         leading: Icon(
           icon,
@@ -42,13 +42,13 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
           ),
-          _createItem(
+          createItem(
             Icons.restaurant,
              'Refeições',
              ()=> Navigator.of(context).pushReplacementNamed(AppRoutes.home)
               ),
           const SizedBox(height: 20),
-          _createItem(
+          createItem(
             Icons.settings,
              'Configurações',
              ()=> Navigator.of(context).pushReplacementNamed(AppRoutes.settings)
