@@ -10,35 +10,27 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     void selectCategory(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      AppRoutes.categoryMeals,
-      arguments: category,
-    );
-  }
+      Navigator.of(context).pushNamed(
+        AppRoutes.categoryMeals,
+        arguments: category,
+      );
+    }
 
     return InkWell(
-       borderRadius: (BorderRadius.circular(10)),
-       splashColor: Theme.of(context).primaryColor,
+      borderRadius: (BorderRadius.circular(10)),
+      splashColor: Theme.of(context).primaryColor,
       onTap: () => selectCategory(context),
       child: Material(
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: (BorderRadius.circular(10)),
-            gradient: LinearGradient(
-              colors: [
-                category.color.withOpacity(0.5),
-                category.color
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight
-            )
-          ),
-          child: Text(
-            category.title
-          ),
+              borderRadius: (BorderRadius.circular(10)),
+              gradient: LinearGradient(
+                  colors: [category.color.withOpacity(0.5), category.color],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight)),
+          child: Text(category.title),
         ),
       ),
     );
